@@ -12,8 +12,19 @@ public class CalculatorController {
     public String hello() {
         return "Вы попали в Калькулятор";
     }
+
     @GetMapping("/plus")
     public String plus() {
         return "плюс";
+    }
+
+    @GetMapping("/minus")
+    public String minus() {
+        return "минус";
+    }
+
+    @GetMapping("/multiply")
+    public String multiply() {
+        return "мульти";
     }
 }
