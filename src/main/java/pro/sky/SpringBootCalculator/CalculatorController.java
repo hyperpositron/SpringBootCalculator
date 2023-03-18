@@ -46,8 +46,10 @@ public class CalculatorController {
     }
 
     @GetMapping("/divide")
-    public String divide(@RequestParam int num1, @RequestParam int num2) {
-        return num1 + " / " + num2 + " = " + service.divide(num1, num2);
-
+    public String divide(@RequestParam(required = false) String num1, @RequestParam(required = false) String num2) {
+        if (num1 == null || num2 == null && num1.isEmpty() || num2.isEmpty()) {
+            return " Ошибка !!! Нужно ввести Два параметра ";
+        }
+        return num1 + " / " + num2 + " = " + service.divide(Integer.parseInt(num1), Integer.parseInt(num2));
     }
 }
