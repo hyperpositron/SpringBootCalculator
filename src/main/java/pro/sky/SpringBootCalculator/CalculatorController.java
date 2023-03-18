@@ -26,12 +26,15 @@ public class CalculatorController {
         if (num1 == null || num2 == null && num1.isEmpty() || num2.isEmpty()) {
             return " Ошибка !!! Нужно ввести Два параметра ";   // Если какой-то из двух параметров (или оба) не поданы, нужно вернуть ошибку.
         }
-        return num1 + " + " + num2 + " = " + service.sum(Integer.parseInt(num1),Integer.parseInt(num2));
+        return num1 + " + " + num2 + " = " + service.sum(Integer.parseInt(num1), Integer.parseInt(num2));
     }
 
     @GetMapping("/minus")
-    public String minus(@RequestParam int num1, @RequestParam int num2) {
-        return num1 + " - " + num2 + " = " + service.minus(num1, num2);
+    public String minus(@RequestParam(required = false) String num1, @RequestParam(required = false) String num2) {
+        if (num1 == null || num2 == null && num1.isEmpty() || num2.isEmpty()) {
+            return " Ошибка !!! Нужно ввести Два параметра ";
+            return num1 + " - " + num2 + " = " + service.minus(Integer.parseInt(num1),Integer.parseInt(num2);
+        }
     }
 
     @GetMapping("/multiply")
