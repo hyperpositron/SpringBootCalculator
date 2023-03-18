@@ -33,13 +33,16 @@ public class CalculatorController {
     public String minus(@RequestParam(required = false) String num1, @RequestParam(required = false) String num2) {
         if (num1 == null || num2 == null && num1.isEmpty() || num2.isEmpty()) {
             return " Ошибка !!! Нужно ввести Два параметра ";
-            return num1 + " - " + num2 + " = " + service.minus(Integer.parseInt(num1),Integer.parseInt(num2);
         }
+        return num1 + " - " + num2 + " = " + service.minus(Integer.parseInt(num1), Integer.parseInt(num2));
     }
 
     @GetMapping("/multiply")
-    public String multiply(@RequestParam int num1, @RequestParam int num2) {
-        return num1 + " * " + num2 + " = " + service.multiply(num1, num2);
+    public String multiply(@RequestParam(required = false) String num1, @RequestParam(required = false) String num2) {
+        if (num1 == null || num2 == null && num1.isEmpty() || num2.isEmpty()) {
+            return " Ошибка !!! Нужно ввести Два параметра ";
+        }
+        return num1 + " * " + num2 + " = " + service.multiply(Integer.parseInt(num1), Integer.parseInt(num2));
     }
 
     @GetMapping("/divide")
