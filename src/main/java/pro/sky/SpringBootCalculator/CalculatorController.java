@@ -25,6 +25,11 @@ public class CalculatorController {
 
     @GetMapping("/multiply")
     public String multiply() {
-        return "мульти";
+        return "умножение";
+    }
+
+    @GetMapping("/divide")
+    public String divide() {
+        return "деление"
     }
 }
