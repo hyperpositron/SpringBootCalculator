@@ -32,8 +32,8 @@ public class CalculatorController {
     }
 
     @GetMapping("/multiply")
-    public String multiply() {
-        return "умножение";
+    public String multiply(@RequestParam int num1, @RequestParam int num2) {
+        return num1 + " * " + num2 + " = " + service.multiply(num1, num2);
     }
 
     @GetMapping("/divide")
