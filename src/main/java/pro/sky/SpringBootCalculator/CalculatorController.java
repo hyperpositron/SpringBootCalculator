@@ -22,8 +22,11 @@ public class CalculatorController {
     }
 
     @GetMapping("/plus")
-    public String plus(@RequestParam int num1, @RequestParam int num2) {
-        return num1 + " + " + num2 + " = " + service.sum(num1, num2);
+    public String plus(@RequestParam(required = false) String num1, @RequestParam(required = false) String num2) {
+        if (num1 == null || num2 == null && num1.isEmpty() || num2.isEmpty()) {
+            return " Ошибка !!! Нужно ввести Два параметра ";   // Если какой-то из двух параметров (или оба) не поданы, нужно вернуть ошибку.
+        }
+        return num1 + " + " + num2 + " = " + service.sum(Integer.parseInt(num1),Integer.parseInt(num2));
     }
 
     @GetMapping("/minus")
