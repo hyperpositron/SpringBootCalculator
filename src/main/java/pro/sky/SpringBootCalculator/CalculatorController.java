@@ -50,6 +50,9 @@ public class CalculatorController {
         if (num1 == null || num2 == null && num1.isEmpty() || num2.isEmpty()) {
             return " Ошибка !!! Нужно ввести Два параметра ";
         }
+        if (num2.equals("0")) {
+            return "ОШИБКА!!! Деление на 0 не возможно !!!";
+        }
         return num1 + " / " + num2 + " = " + service.divide(Integer.parseInt(num1), Integer.parseInt(num2));
     }
 }
