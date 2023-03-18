@@ -11,7 +11,9 @@ public class CalculatorController {
     @GetMapping
     public String hello() {
         return "Вы попали в Калькулятор";
-
-
+    }
+    @GetMapping("/plus")
+    public String plus() {
+        return "плюс";
     }
 }
