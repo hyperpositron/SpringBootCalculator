@@ -2,6 +2,7 @@ package pro.sky.SpringBootCalculator;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
@@ -21,8 +22,8 @@ public class CalculatorController {
     }
 
     @GetMapping("/plus")
-    public String plus() {
-        return "плюс";
+    public String plus(@RequestParam int num1,@RequestParam int num2) {
+        return ""+service.sum(num1,num2);
     }
 
     @GetMapping("/minus")
