@@ -30,6 +30,6 @@ public class CalculatorController {
 
     @GetMapping("/divide")
     public String divide() {
-        return "деление"
+        return "деление";
     }
 }
